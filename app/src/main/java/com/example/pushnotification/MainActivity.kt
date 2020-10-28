@@ -50,21 +50,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private fun createNotificationChannel() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            val channelName = getString(R.string.channel_name)
-//            val channelDescription = getString(R.string.channel_description)
-//            val importance = NotificationManager.IMPORTANCE_DEFAULT
-//            val channel = NotificationChannel(channelId, channelName, importance).apply {
-//                description = channelDescription
-//            }
-//            // Register the channel with the system
-//            val notificationManager: NotificationManager =
-//                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//            notificationManager.createNotificationChannel(channel)
-//        }
-//    }
-
     private fun pushNotification() {
         val channelId = "$packageName-${getString(R.string.app_name)}"
         val title = "My Android Notification"
@@ -74,17 +59,6 @@ class MainActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         val pendingIntent = PendingIntent.getActivity(baseContext, 0,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-//        val builder = NotificationCompat.Builder(this, channelId)
-//        builder.setSmallIcon(R.drawable.ic_launcher_foreground)
-//        builder.setContentTitle(title)
-//        builder.setContentText(content)
-//        builder.priority = NotificationCompat.PRIORITY_DEFAULT
-//        builder.setAutoCancel(true)
-//        builder.setContentIntent(pendingIntent)
-//
-//        val notificationManager = NotificationManagerCompat.from(this)
-//        notificationManager.notify(NOTIFICATION_ID, builder.build())
 
         val builder = NotificationCompat.Builder(this, channelId)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
